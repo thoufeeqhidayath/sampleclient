@@ -1,0 +1,13 @@
+	str=sc.next();
+				String id=sc.next();
+				str=sc.next();
+				String amount=sc.next();
+				str=sc.next();
+				String mode=sc.next();
+				str=sc.next();
+				String reason=sc.next();
+				str=sc.next();
+				String balance=sc.next();
+				
+				 
+				 System.out.println(id+amount+mode+reason+balance);
