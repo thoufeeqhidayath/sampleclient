@@ -3,7 +3,7 @@ package expensespringApplication;
 import java.io.IOException;
 
 public class Selectaccount extends basicoperations {
-	String httpServer="http://localhost:8080/";
+	String httpServer="http://ec2-18-217-32-176.us-east-2.compute.amazonaws.com:8080/";
 	
 	public void selectoperation() throws Exception
 	

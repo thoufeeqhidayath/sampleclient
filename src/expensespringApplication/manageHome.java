@@ -5,7 +5,7 @@ import java.io.IOException;
 public class manageHome extends basicoperations{
 ManageAccount ManageAccount=new ManageAccount();
 Selectaccount selectaccount=new Selectaccount();
-String httpServer="http://localhost:8080/";
+String httpServer="http://ec2-18-217-32-176.us-east-2.compute.amazonaws.com:8080/";
 	public int selectoperations() throws Exception
 	{
 		printOut("Enter the option \n 1-Manage Account 2-Select Account 3-View Account\n");
