@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class ManageAccount extends basicoperations {
 	
-	
+	String httpServer="http://localhost:8080/";
 	public void selectMode() throws Exception
 	
 	{
@@ -49,7 +49,7 @@ public class ManageAccount extends basicoperations {
 	{
 		printOut("Enter the name of account");
 		String accountname=readStringInput();
-		String url = "http://localhost:8080/createaccount?names="+accountname;
+		String url = httpServer+"createaccount?names="+accountname;
 		getoperations objects=new getoperations();
 		String result=objects.sendGet(url);
 		printOut(result);
@@ -61,7 +61,7 @@ public class ManageAccount extends basicoperations {
     {
     	printOut("Enter the nmber of account to delete");
         int accountnumber=readIntInput();
-        String url = "http://localhost:8080/deleteaccounts?number="+accountnumber;
+        String url = httpServer+"deleteaccounts?number="+accountnumber;
         getoperations objects=new getoperations();
         String result=objects.sendGet(url);
    		printOut(result);
@@ -76,7 +76,7 @@ public class ManageAccount extends basicoperations {
 
 	public void viewaccount() throws Exception 
 	{
-        String url = "http://localhost:8080/viewaccounts";
+        String url = httpServer+"viewaccounts";
         getoperations objects=new getoperations();
         String result=objects.sendGetforObjectForAccount(url);
    		printOut(result);

@@ -3,6 +3,7 @@ package expensespringApplication;
 import java.io.IOException;
 
 public class Selectaccount extends basicoperations {
+	String httpServer="http://localhost:8080/";
 	
 	public void selectoperation() throws Exception
 	
@@ -40,32 +41,41 @@ public class Selectaccount extends basicoperations {
 	}
 
 	public void selectAccount() throws Exception
-	{ int  accountnumber=0;
-		try {
+	
+	{ 
+		int  accountnumber=0;
+		try 
+		{
 		printOut("Enter the number of account");
    accountnumber=readIntInput();
-	}catch(NumberFormatException e)
-	{
+	
+		}
+		catch(NumberFormatException e)
+	
+		{
 		printOut("Enter a valid Format");
 		selectAccount();
-	}
-    String url = "http://localhost:8080/select?number="+accountnumber;
-    getoperations objects=new getoperations();
-    String result=objects.sendGet(url);
+	
+		}
+   
+		String url = httpServer+"select?number="+accountnumber;
+		getoperations objects=new getoperations();
+		String result=objects.sendGet(url);
 		printOut(result);
 		selectoperation();
 	}
 	
 	public void Deposit() throws Exception
 	{
-   printOut("Enter the amount");
-   Double amount=readDoubleInput();
-   printOut("Enter the Reason");
-   String reason=readStringInput();
-   String url = "http://localhost:8080/deposit?amount="+amount+"&reason="+reason;
-   getoperations objects=new getoperations();
-   String result=objects.sendGet(url);
-	printOut(result);
+   
+		printOut("Enter the amount");
+		Double amount=readDoubleInput();
+		printOut("Enter the Reason");
+		String reason=readStringInput();
+		String url = httpServer+"deposit?amount="+amount+"&reason="+reason;
+		getoperations objects=new getoperations();
+		String result=objects.sendGet(url);
+		printOut(result);
 		selectoperation();
 		
 	}
@@ -73,11 +83,11 @@ public class Selectaccount extends basicoperations {
 	public void Withdraw() throws Exception
 	
 	{
-		printOut("Enter the amount");
+		   printOut("Enter the amount");
 		   Double amount=readDoubleInput();
 		   printOut("Enter the Reason");
 		   String reason=readStringInput();
-		    String url = "http://localhost:8080/withdraw?amount="+amount+"&reason="+reason;
+		    String url = httpServer+"withdraw?amount="+amount+"&reason="+reason;
 		  
 		    getoperations objects=new getoperations();
 		    String result=objects.sendGet(url);
@@ -86,38 +96,51 @@ public class Selectaccount extends basicoperations {
 	}
 	
 	public void Transfer() throws Exception
-	{int toaccount=0;
+	
+	{
+		int toaccount=0;
 		printOut("Enter the account to transfer");
-	  try {
+	  
+		try 
+		{
 		toaccount=readIntInput();
-	  }catch(NumberFormatException e)
-	  {
+	  
+		}
+		catch(NumberFormatException e)
+	  
+		{
 		  printOut("enter a valid format");
-	  }
+	  
+		}
+		
 		printOut("Enter the amount");
-		   Double amount=readDoubleInput();
-		   printOut("Enter the Reason");
-		   String reason=readStringInput();
-		   String url = "http://localhost:8080/transfer?toaccount="+toaccount+"&amount="+amount+"&reason="+reason;
-			  
-		    getoperations objects=new getoperations();
-		    String result=objects.sendGet(url);
-				printOut(result);
-				selectoperation();
+		  
+		Double amount=readDoubleInput();
+	    printOut("Enter the Reason");   
+	    String reason=readStringInput();   
+	    String url = httpServer+"transfer?toaccount="+toaccount+"&amount="+amount+"&reason="+reason;  
+		getoperations objects=new getoperations();
+		String result=objects.sendGet(url);
+	    printOut(result);
+		selectoperation();
 		
 	}
+	
 	public void Delete() throws Exception
+	
 	{
 		printOut("Enter the id to delete");
 		   int idnumber=readIntInput();
-		   String url = "http://localhost:8080/delete?idnumber="+idnumber;
+		   String url = httpServer+"delete?idnumber="+idnumber;
 				  
 			    getoperations objects=new getoperations();
 			    String result=objects.sendGet(url);
 					printOut(result);
 					selectoperation();
 	}
+	
 	public void Update() throws Exception
+	
 	{
 		printOut("Enter the id to update");
 		   int idnumber=readIntInput();
@@ -125,31 +148,40 @@ public class Selectaccount extends basicoperations {
 		   Double amount=readDoubleInput();
 		   printOut("Enter the Reason");
 		   String reason=readStringInput();
-		   String url = "http://localhost:8080/update?idnumber="+idnumber+"&amount="+amount+"&reason="+reason;
+		   String url = httpServer+"update?idnumber="+idnumber+"&amount="+amount+"&reason="+reason;
 				  
 			    getoperations objects=new getoperations();
 			    String result=objects.sendGet(url);
 					printOut(result);
 					selectoperation();
 		
-	}public void Undo() throws Exception
+	}
+	
+	public void Undo() throws Exception
+	
 	{
-		 String url = "http://localhost:8080/undo";
+		 String url = httpServer+"undo";
 		   getoperations objects=new getoperations();
 		    String result=objects.sendGet(url);
 				printOut(result);
 				 selectoperation();
 		
 	}
-	public void Balance() throws Exception {
-		 String url = "http://localhost:8080/balance";
+	
+	public void Balance() throws Exception 
+	
+	{
+		 String url = httpServer+"balance";
 		   getoperations objects=new getoperations();
 		    String result=objects.sendGet(url);
 				printOut(result);
 				 selectoperation();
 	}
-	public void viewTransaction() throws Exception {
-		 String url = "http://localhost:8080/viewtransaction";
+	
+	public void viewTransaction() throws Exception 
+	
+	{
+		 String url = httpServer+"viewtransaction";
 		   getoperations objects=new getoperations();
 		    String result=objects.sendGetforObjectS(url);
 				printOut(result);
